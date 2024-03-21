@@ -8,7 +8,7 @@
 
 
 sendOrderToMyNumber = function () {
-    let orderDetails = "3 ساندويتشات من كنتاكي%0A5 مشروبات كوكاكولا%0A2 ايسكريم شوكلاته";
+    let orderDetails = "3 ساندويتشات من كنتاكي\n5 مشروبات كوكاكولا\n2 ايسكريم شوكلاته";
 
     // Encode the message using encodeURIComponent
     let encodedMessage = encodeURIComponent(orderDetails);
