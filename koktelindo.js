@@ -214,7 +214,7 @@ if (localStorage.getItem('orderMessage')) {
     let koktelindo_mealOrderIconDiv = document.createElement('div');
     koktelindo_mealOrderIconDiv.id = 'koktelindo_meal_order_icon_div';
     koktelindo_mealOrderIconDiv.style.opacity = '0';
-    let koktelindo_mealOrderIcon = `<a href='../../طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
+    let koktelindo_mealOrderIcon = `<a href='طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
     koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
     document.body.appendChild(koktelindo_mealOrderIconDiv);
 
@@ -297,7 +297,7 @@ if (document.getElementById("koktelindo_meal_info_section")) {
     let koktelindo_mealOrderIconDiv = document.createElement('div');
     koktelindo_mealOrderIconDiv.id = 'koktelindo_meal_order_icon_div';
     koktelindo_mealOrderIconDiv.style.opacity = '0';
-    let koktelindo_mealOrderIcon = `<a href='../../طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
+    let koktelindo_mealOrderIcon = `<a href='طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
     koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
     document.body.appendChild(koktelindo_mealOrderIconDiv);
 
@@ -587,7 +587,7 @@ if (document.getElementById("koktelindo_order_details_body_id")) {
         let localStorageOrderCardContent = `
         
             <h2>طلب رقم 1</h2>
-            <img src="../../koktelindo_store_card_logo/1.png" alt''>
+            <img src="koktelindo_store_card_logo/1.png" alt''>
 
             <div>
                 <h3 onclick="koktelindo_show_order_details_page()">سعر التوصيل = 15,000 Rp</h3>
