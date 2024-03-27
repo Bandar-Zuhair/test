@@ -1,0 +1,1964 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
+/* Simple Animation SetUp For Later Use */
+@keyframes floatAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* All */
+* {
+    font-family: 'Readex Pro', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    direction: rtl;
+}
+
+/* Body */
+body {
+    background: rgb(59, 59, 59);
+    color: white;
+}
+
+
+
+/* Unknow Effects */
+.koktelindo_full_screen_overlay {
+    width: 100%;
+    height: 100%;
+    background: rgb(59, 59, 59);
+    padding: 20px 0;
+    z-index: 997;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.koktelindo_full_screen_overlay h1 {
+    background: black;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+.koktelindo_full_screen_overlay video,
+.koktelindo_full_screen_overlay img {
+    margin: 10px 0;
+    width: 400px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 1px black;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.koktelindo_full_screen_overlay video:hover,
+.koktelindo_full_screen_overlay img:hover {
+    transform: scale(1.03);
+}
+
+.koktelindo_full_screen_overlay_exit_button {
+    text-decoration: none;
+    background: black;
+    color: white;
+    z-index: 999;
+    font-size: 1.5vw;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: all 0.1s ease-in-out;
+}
+
+.koktelindo_full_screen_overlay_exit_button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.03);
+}
+
+.koktelindo_full_screen_img_overlay {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    z-index: 997;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.koktelindo_big_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 95%;
+    width: auto;
+    max-height: 90vh;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 1px black;
+}
+
+.koktelindo_full_screen_guidance_overlay {
+    background: rgb(59, 59, 59);
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    z-index: 997;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    /* Prevent scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+/* Header */
+header {
+    background: rgb(59, 59, 59);
+    width: 100%;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#koktelindo_weblogo {
+    width: 70Vw;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#koktelindo_web_logo_no_moving{
+    width: 70Vw;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#koktelindo_error_logo {
+    width: 50Vw;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.koktelindo_web_intro {
+    color: rgb(0, 162, 255);
+    font-size: 3vw;
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+#koktelindo_web_intro_1 {
+    font-size: 4vw;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#koktelindo_web_intro_2 {
+    color: white;
+    font-size: 1.5vw;
+}
+
+#koktelindo_web_intro_3 {
+    color: white;
+    font-size: 2.5vw;
+    padding: 15px 0;
+    margin: 5px 0 15px 0;
+}
+
+.koktelindo_web_intro_contact_us {
+    background: black;
+    margin: 5px 0;
+    font-size: 1.5vw;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.koktelindo_web_intro_contact_us:hover {
+    background: rgb(59, 59, 59);
+    color: rgb(0, 255, 0);
+    transform: scale(1.03);
+}
+
+#koktelindo_website_guidance_text {
+    background: black;
+    margin: 5px 0;
+    font-size: 2vw;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+#koktelindo_website_guidance_text:hover {
+    background: rgb(59, 59, 59);
+    color: rgb(0, 255, 0);
+    transform: scale(1.03);
+}
+
+#koktelindo_error_page_go_back_button {
+    background: black;
+    margin: 5px 0;
+    font-size: 2vw;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 18px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+#koktelindo_error_page_go_back_button:hover {
+    background: rgb(59, 59, 59);
+    color: rgb(0, 255, 0);
+    transform: scale(1.03);
+}
+
+.web_guidance_div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(78, 78, 78);
+    width: 90%;
+    padding: 50px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px white;
+}
+
+
+.web_guidance_div a {
+    text-decoration: none;
+    background: black;
+    color: white;
+    font-size: 2.5vw;
+    line-height: 1.5;
+    text-align: center;
+    margin: 5px 0;
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.web_guidance_div a:hover {
+    background: rgb(166, 166, 166);
+    color: black;
+}
+
+nav {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#koktelindo_nav {
+    background: rgb(0, 162, 255);
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    width: fit-content;
+    border: 1px solid white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#koktelindo_nav:hover {
+    background: rgb(118, 205, 255);
+    color: rgb(0, 255, 0);
+}
+
+nav h3 {
+    color: black;
+    font-size: 2vw;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#koktelindo_nav_icon {
+    width: 3vw;
+    cursor: pointer;
+}
+
+body.nav-open #koktelindo_nav_options * {
+    pointer-events: auto;
+}
+
+#koktelindo_nav_options {
+    background: rgb(99, 99, 99);
+    padding: 10px;
+    z-index: 985;
+    position: fixed;
+    right: -75%;
+    top: 50%;
+    width: 75%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+#koktelindo_nav_logo {
+    width: 10vw;
+    margin: 10px 0;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#koktelindo_nav_options a {
+    text-decoration: none;
+    color: white;
+    margin: 5px 0;
+    width: 100%;
+    font-size: 1.5vw;
+    border: 1px solid white;
+    border-radius: 7px;
+    text-align: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#koktelindo_nav_options a:hover {
+    background: rgb(152, 152, 152);
+    color: rgb(0, 255, 0);
+}
+
+#koktelindo_close_nav {
+    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255));
+}
+
+#koktelindo_whatsapp_icon {
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 80px;
+    left: 5px;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#koktelindo_whatsapp_icon h4 {
+    background: orange;
+    color: black;
+    font-size: 1.5vw;
+    text-align: center;
+    padding: 5px 10px;
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.1s ease-in-out;
+}
+
+#koktelindo_whatsapp_icon img {
+    width: 5vw;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#koktelindo_whatsapp_icon h4:hover,
+#koktelindo_whatsapp_icon img:hover {
+    opacity: 0.5;
+}
+
+#koktelindo_go_up_arrow {
+    opacity: 0;
+    z-index: 998;
+    background: orange;
+    color: black;
+    font-size: 3.5vw;
+    position: fixed;
+    bottom: 80px;
+    right: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    animation: floatAnimation 4s ease-in-out infinite;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_go_up_arrow:hover {
+    background: rgb(0, 162, 255);
+}
+
+
+
+
+
+
+/* Choose Your Service Section */
+#koktelindo_choose_service_section {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#koktelindo_choose_service_area {
+    background: blue;
+    width: 100%;
+    padding: 50px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_choose_service_area a {
+    background: black;
+    background: pink;
+    color: white;
+    text-decoration: none;
+    width: 450px;
+    border-radius: 7px;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px black;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_choose_service_area a:hover {
+    transform: scale(1.03);
+    opacity: 0.8;
+}
+
+.koktelindo_choose_service_img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.koktelindo_choose_service_img img {
+    width: 100%;
+}
+
+.koktelindo_choose_service_title {
+    background: pink;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.koktelindo_choose_service_title h2 {
+    background: red;
+}
+
+
+
+
+
+
+
+
+
+/* Store Section */
+#koktelindo_store_section {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#koktelindo_store_card_area {
+    background: blue;
+    width: 100%;
+    padding: 50px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_store_card_area a {
+    background: black;
+    background: pink;
+    color: white;
+    text-decoration: none;
+    width: 450px;
+    border-radius: 7px;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px black;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_store_card_area a:hover {
+    transform: scale(1.03);
+}
+
+.koktelindo_card_img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.koktelindo_card_img img {
+    width: 100%;
+}
+
+.koktelindo_store_card_name_and_rate {
+    background: red;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.koktelindo_store_card_name_and_rate div {
+    background: blue;
+}
+
+.koktelindo_store_card_name h1 {
+    font-size: 1.3vw;
+}
+
+.koktelindo_store_card_name h2 {
+    background: pink;
+    font-size: 0.9vw;
+}
+
+.koktelindo_store_card_rate h3 {
+    font-size: 1vw;
+}
+
+.koktelindo_store_card_info {
+    background: green;
+    background: rgb(72, 72, 72);
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.koktelindo_store_card_delivery_price {
+    font-size: 1vw;
+}
+
+.koktelindo_store_card_delivery_time {
+    font-size: 1vw;
+}
+
+
+
+
+
+
+
+
+
+/* Store Menu Section */
+#koktelindo_store_menu_section {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#koktelindo_store_menu_area {
+    background: blue;
+    width: 100%;
+    padding: 50px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.koktelindo_store_menu_card {
+    margin: 10px 0;
+    overflow: hidden;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px black;
+}
+
+#koktelindo_store_menu_area a {
+    background: black;
+    background: pink;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    width: 950px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_store_menu_area a:hover {
+    opacity: 0.8;
+}
+
+.koktelindo_store_menu_img {
+    width: 50%;
+}
+
+.koktelindo_store_menu_img img {
+    width: 100%;
+}
+
+.koktelindo_store_menu_info {
+    background: red;
+}
+
+.koktelindo_store_menu_info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.koktelindo_meal_text {
+    background: green;
+}
+
+.koktelindo_meal_text h2 {
+    font-size: 1.5vw;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.koktelindo_kfc_pass_button {
+    background: rgb(9, 189, 255);
+    color: black;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.koktelindo_kfc_pass_button:hover {
+    opacity: 0.8;
+}
+
+#koktelindo_menu_nav {
+    background: rgb(0, 162, 255);
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    width: fit-content;
+    border: 1px solid white;
+    border-radius: 7px;
+}
+
+#koktelindo_menu_nav:hover {
+    background: rgb(118, 205, 255);
+    color: rgb(0, 255, 0);
+}
+
+#koktelindo_menu_nav_icon {
+    width: 3vw;
+    border-radius: 7px;
+}
+
+body.nav-open #koktelindo_menu_nav_options * {
+    pointer-events: auto;
+}
+
+#koktelindo_menu_nav_options {
+    background: rgb(99, 99, 99);
+    padding: 10px;
+    z-index: 985;
+    position: fixed;
+    right: -75%;
+    top: 50%;
+    width: 75%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+#koktelindo_menu_nav_logo {
+    width: 10vw;
+    margin: 10px 0;
+    border-radius: 7px;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#koktelindo_menu_nav_options a {
+    text-decoration: none;
+    color: white;
+    margin: 5px 0;
+    width: 100%;
+    font-size: 1.5vw;
+    border: 1px solid white;
+    border-radius: 7px;
+    text-align: center;
+    padding: 10px 18px;
+    transition: all 0.1s ease-in-out;
+}
+
+#koktelindo_menu_nav_options a:hover {
+    background: rgb(152, 152, 152);
+    color: rgb(0, 255, 0);
+}
+
+#koktelindo_close_menu_nav {
+    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255));
+}
+
+
+
+
+
+
+
+
+
+/* Meal Info Section */
+#koktelindo_store_menu_section {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.koktelindo_meal_info_name_area {
+    background: blue;
+    padding: 20px;
+}
+
+.koktelindo_meal_info_name_area * {
+    background: purple;
+    font-size: 3vw;
+    margin: 5px 0;
+}
+
+.koktelindo_orignal_price_div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    background: red;
+}
+
+.koktelindo_orignal_price_div h4 {
+    color: rgb(0, 255, 0);
+    font-size: 2vw;
+}
+
+#koktelindo_orignal_price{
+    margin-right: 10px;
+}
+
+.koktelindo_meal_info_options_area {
+    background: pink;
+}
+
+.koktelindo_meal_info_options_title {
+    background: purple;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.koktelindo_meal_info_options_title h2 {
+    font-size: 3vw;
+}
+
+.koktelindo_meal_info_options_amount_title {
+    background: purple;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.koktelindo_meal_info_options_amount_title h2 {
+    font-size: 3vw;
+}
+
+.koktelindo_meal_info_options_div {
+    background: red;
+    padding: 0 5px;
+    margin: 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.koktelindo_meal_info_options_div div {
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.koktelindo_meal_info_option {
+    background: black;
+    display: flex;
+    align-items: center;
+}
+
+.koktelindo_meal_info_option input[type="checkbox"] {
+    display: none;
+}
+
+.koktelindo_meal_info_option label::before {
+    content: '';
+    display: inline-block;
+    margin-left: 10px;
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: rgb(159, 159, 159);
+    vertical-align: middle;
+    transition: background-color 0.3s ease;
+}
+
+.koktelindo_meal_info_option input[type="checkbox"]:checked+label::before {
+    background-color: rgb(0, 255, 0);
+}
+
+.koktelindo_meal_info_option label {
+    font-size: 2.5vw;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.koktelindo_meal_info_note {
+    background: green;
+    width: 90%;
+}
+
+.koktelindo_meal_info_note textarea {
+    width: 100%;
+    font-size: 20px;
+    height: 50px;
+    max-height: 250px;
+    padding: 10px;
+    outline: none;
+    resize: none;
+    border-color: rgb(0, 191, 255);
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.koktelindo_meal_info_note textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.koktelindo_meal_info_options_amount {
+    background: gray;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.koktelindo_meal_info_options_amount h2 {
+    font-size: 3vw;
+    margin: 0 50px;
+    color: black;
+    user-select: none;
+    margin-bottom: 150px;
+}
+
+.koktelindo_meal_info_options_amount ion-icon {
+    background: white;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.koktelindo_total_price_div {
+    background: rgb(210, 210, 210);
+    z-index: 990;
+    width: 100%;
+    padding: 10px 0 5px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 0.5px black;
+}
+
+.koktelindo_total_price_div h3 {
+    background: rgb(0, 185, 0);
+    padding: 10px;
+    font-size: 2vw;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px black;
+    transition: all 0.2s ease-in-out;
+}
+
+.koktelindo_total_price_div h3:hover {
+    box-shadow: 0 0 15px 0.5px black;
+}
+
+#koktelindo_meal_order_icon_div{
+    z-index: 995;
+    position: fixed;
+    bottom: 100px;
+    padding: 10px;
+    background: rgb(0, 185, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+    cursor: pointer;
+    animation: floatAnimation 4s ease-in-out infinite;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#koktelindo_meal_order_icon_div a{
+    background: white;
+    color: black;
+    font-size: 3vw;
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* Order Page Details */
+.koktelindo_order_details_div {
+    background: rgb(78, 78, 78);
+    background: red;
+    width: 100%;
+    padding: 50px 5px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.koktelindo_order_details_title{
+    background: black;
+    width: 100%;
+    padding: 20px;
+    font-size: 4vw;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px white;
+}
+
+.koktelindo_order_finished_card_area{
+    background: gray;
+    width: 100%;
+    margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_order_finished_card{
+    background: green;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px black;
+}
+
+#koktelindo_order_finished_card img{
+    width: 25vw;
+    margin: 10px 0;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px black;
+}
+
+#koktelindo_order_finished_card h2{
+    background: pink;
+    font-size: 2vw;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+#koktelindo_orderFinished_info_and_delete{
+    background: blue;
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#koktelindo_order_finished_card h3{
+    margin: 0 10px;
+    background: purple;
+    font-size:2vw;
+    padding: 10px 18px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+    cursor: pointer;
+}
+
+#koktelindo_there_is_no_orders_text{
+    color: red;
+}
+
+#koktelindo_koktelindo_order_details_bottom_button_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_koktelindo_order_details_bottom_button_div h4{
+    margin: 5px 0;
+}
+
+#koktelindo_delete_all_orders_button{
+    background: black;
+    color: red;
+    width: 100%;
+    padding: 15px;
+    font-size: 2.5vw;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0.5px white;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_delete_all_orders_button:hover{
+    box-shadow: 0 0 15px 0.5px white;
+}
+
+#koktelindo_ensure_delete_all_orders_overlay {
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+#koktelindo_ensure_delete_all_orders_div {
+    background: #00ddff;
+    width: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#koktelindo_ensure_delete_all_orders_div h6{
+    background: purple;
+    font-size: 2vw;
+}
+
+#koktelindo_ensure_delete_all_orders_answer_div{
+    background: orange;
+    width: 100%;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px black;
+}
+
+#koktelindo_ensure_delete_all_orders_answer_div h6{
+    background: purple;
+    font-size: 2vw;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0.5px black;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_ensure_delete_all_orders_answer_div h6:hover{
+    box-shadow: 0 0 15px 0.5px white;
+}
+
+#koktelindo_order_details_final_price_title{
+    background: black;
+    width: 100%;
+    padding: 10px 18px;
+    font-size: 3vw;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px white;
+}
+
+#koktelindo_sendOrderButton{
+    background: black;
+    width: fit-content;
+    font-size: 3vw;
+    text-align: center;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px white;
+    transition: all 0.1s ease-in-out;
+}
+
+#koktelindo_sendOrderButton:hover{
+    box-shadow: 0 0 15px 0.5px white;
+}
+
+#koktelindo_order_details_text_div {
+    background: green;
+    width: 100%;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_order_details_text_div div{
+    margin: 20px 0;
+}
+
+
+#koktelindo_order_details_text_background{
+    background: pink;
+    width: 100%;
+}
+
+#koktelindo_order_details_text_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_order_details_text_background h4{
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+#koktelindo_koktelindo_order_details_text_bottom_button_div{
+    background: gray;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_koktelindo_order_details_text_bottom_button_div h5{
+    background: purple;
+    font-size: 2.5vw;
+    margin: 0 15px;
+    padding: 10px 18px;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_koktelindo_order_details_text_bottom_button_div h5:hover{
+    
+    box-shadow: 0 0 15px 0.5px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Home Worker And Driver Section (Not Ready Yet) */ 
+#koktelindo_store_section {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#koktelindo_store_card_area {
+    background: blue;
+    width: 100%;
+    padding: 50px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_store_card_area a {
+    background: black;
+    background: pink;
+    color: white;
+    text-decoration: none;
+    width: 450px;
+    border-radius: 7px;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px black;
+    transition: all 0.2s ease-in-out;
+}
+
+#koktelindo_store_card_area a:hover {
+    transform: scale(1.03);
+}
+
+.koktelindo_card_img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.koktelindo_card_img img {
+    width: 100%;
+}
+
+.koktelindo_store_card_name_and_rate {
+    background: red;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.koktelindo_store_card_name_and_rate div {
+    background: blue;
+}
+
+.koktelindo_store_card_name h1 {
+    font-size: 1.3vw;
+}
+
+.koktelindo_store_card_name h2 {
+    background: pink;
+    font-size: 0.9vw;
+}
+
+.koktelindo_store_card_rate h3 {
+    font-size: 1vw;
+}
+
+.koktelindo_store_card_info {
+    background: green;
+    background: rgb(72, 72, 72);
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.koktelindo_store_card_delivery_price {
+    font-size: 1vw;
+}
+
+.koktelindo_store_card_delivery_time {
+    font-size: 1vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main Page Section */
+#koktelindo_main_page_section {
+    background: rgb(59, 59, 59);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.koktelindo_main_page_text {
+    background: black;
+    font-size: 1.5vw;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: fit-content;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid white;
+}
+
+.koktelindo_main_page_text_2 {
+    background: black;
+    font-size: 2vw;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: fit-content;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid white;
+}
+
+#koktelindo_our_features_area {
+    background: rgb(78, 78, 78);
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: center;
+    box-shadow: 0 0 3px 0.5px white;
+}
+
+#koktelindo_our_features_area h2 {
+    font-size: 1.5vw;
+    padding: 8px 16px;
+    border-radius: 7px;
+    margin: 3px 0;
+}
+
+#koktelindo_our_features_area spam {
+    margin-left: 5px;
+}
+
+#koktelindo_main_page_section img {
+    margin: 15px 0;
+}
+
+#koktelindo_indonesia_info_image_1 {
+    width: 100px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+#koktelindo_indonesia_info_image_2 {
+    width: 150px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+#koktelindo_indonesia_info {
+    background: rgb(78, 78, 78);
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 3px 0.5px white;
+}
+
+#koktelindo_indonesia_info h2 {
+    font-size: 1vw;
+    line-height: 1.5;
+}
+
+
+#koktelindo_our_contact_info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px
+}
+
+#koktelindo_our_contact_info div {
+    background: linear-gradient(to right, rgb(255, 0, 221), rgb(174, 0, 255), rgb(13, 0, 255));
+    display: flex;
+    width: 20vw;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0.5px black;
+    animation: floatAnimation 4s ease-in-out infinite;
+    transition: all 0.1s ease-in-out;
+}
+
+#koktelindo_our_contact_info div:hover {
+    opacity: 0.6;
+}
+
+#koktelindo_our_contact_info ion-icon {
+    background: linear-gradient(#00ddff, rgb(251, 0, 255));
+    font-size: 5vw;
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+}
+
+#koktelindo_our_contact_info h1,
+#koktelindo_our_contact_info h2 {
+    background: orange;
+    font-size: 1vw;
+    text-align: center;
+    align-items: center;
+    margin: 5px 0;
+    padding: 6px 12px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 0.5px black;
+}
+
+
+
+
+
+
+
+
+/* About Us Section */
+#koktelindo_companydescription {
+    background: rgb(78, 78, 78);
+    width: 100%;
+    margin-top: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px white;
+}
+
+#koktelindo_companydescription h2 {
+    font-size: 1.5vw;
+    line-height: 1.5;
+    text-align: center;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 7px;
+}
+
+#koktelindo_companydescription img {
+    margin-top: 10px;
+    width: 150px;
+    cursor: pointer;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+
+
+
+/* Our Accounts Section */
+#koktelindo_accounts_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_accounts_area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_accounts_div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_accounts_section h1 {
+    background: black;
+    font-size: 3vw;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid white;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+#koktelindo_accounts_section a {
+    background: rgb(90, 90, 90);
+    color: white;
+    width: 20vw;
+    font-size: 3vw;
+    margin: 10px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 7px;
+    transition: all 0.1s ease-in-out;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+#koktelindo_accounts_section ion-icon {
+    width: 100%;
+    font-size: 4.5vw;
+    padding: 5px 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+#koktelindo_accounts_section a:hover {
+    background: rgb(188, 188, 188);
+    color: black
+}
+
+#koktelindo_ads_videos_and_img_div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.koktelindo_ads_only_videos_div {
+    width: 50vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin: 15px;
+    overflow: hidden;
+}
+
+.koktelindo_ads_only_img_div {
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.koktelindo_ads_only_videos_div video {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.koktelindo_ads_only_videos_div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.5s ease;
+}
+
+.koktelindo_ads_only_img_div img {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* Footer Section */
+footer {
+    background: black;
+    display: flex;
+    width: 100%;
+    padding: 5px 0;
+}
+
+footer div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+footer h1,
+footer h2 {
+    font-size: 2vw;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: center;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+footer img {
+    width: 6vw;
+    cursor: pointer;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+/* 1250px */
+@media(max-width:1250px) {
+    #koktelindo_nav_logo {
+        width: 15vw;
+    }
+
+    #koktelindo_go_up_arrow {
+        font-size: 5.5vw;
+    }
+
+    #koktelindo_nav_options a {
+        font-size: 2.5vw;
+    }
+
+    #koktelindo_close_nav {
+        font-size: 2vw;
+    }
+}
+
+/* 1040px */
+@media(max-width:1040px) {
+    #koktelindo_whatsapp_icon h4 {
+        font-size: 2vw;
+    }
+
+    #koktelindo_whatsapp_icon img {
+        width: 7vw;
+    }
+}
+
+/* 950px */
+@media(max-width:950px) {}
+
+/* 850px */
+@media(max-width:850px) {
+    .koktelindo_web_intro_contact_us {
+        font-size: 2vw;
+    }
+
+    #koktelindo_website_guidance_text {
+        font-size: 2.5vw;
+    }
+
+    #koktelindo_nav_icon {
+        width: 4vw;
+    }
+
+    #koktelindo_our_contact_info div {
+        width: 50vw;
+    }
+
+    #koktelindo_our_contact_info ion-icon {
+        font-size: 20vw;
+    }
+
+    #koktelindo_our_contact_info h1,
+    #koktelindo_our_contact_info h2 {
+        font-size: 3vw;
+    }
+
+    footer h1,
+    footer h2 {
+        font-size: 3vw;
+    }
+
+    footer img {
+        width: 7vw;
+    }
+}
+
+/* 760px */
+@media(max-width:760px) {
+    #koktelindo_weblogo {
+        width: 100Vw;
+    }
+    
+    #koktelindo_web_logo_no_moving {
+        width: 100Vw;
+    }
+
+    #koktelindo_whatsapp_icon h4 {
+        font-size: 2.5vw;
+    }
+
+    #koktelindo_whatsapp_icon img {
+        width: 9vw;
+    }
+
+    #koktelindo_go_up_arrow {
+        font-size: 7.5vw;
+    }
+}
+
+/* 650px */
+@media(max-width:650px) {
+    #koktelindo_nav_logo {
+        width: 19vw;
+    }
+
+
+    #koktelindo_nav_options a {
+        font-size: 3.5vw;
+    }
+
+    #koktelindo_close_nav {
+        font-size: 3vw;
+    }
+}
+
+/* 580px */
+@media(max-width:580px) {
+    .koktelindo_full_screen_overlay_exit_button {
+        font-size: 2.5vw;
+    }
+
+    #koktelindo_whatsapp_icon h4 {
+        font-size: 3vw;
+        padding: 4px 8px;
+    }
+
+    #koktelindo_whatsapp_icon img {
+        width: 11vw;
+    }
+
+    #koktelindo_web_intro_1 {
+        font-size: 6vw;
+    }
+
+    #koktelindo_web_intro_2 {
+        font-size: 2.5vw;
+    }
+
+    #koktelindo_web_intro_3 {
+        font-size: 4vw;
+    }
+
+    .koktelindo_web_intro_contact_us {
+        font-size: 2.5vw;
+        padding: 8px 12px;
+    }
+
+    #koktelindo_website_guidance_text {
+        font-size: 3vw;
+        padding: 8px 12px;
+    }
+
+    Nav {
+        padding: 0 10px 0 0;
+    }
+
+    #koktelindo_nav {
+        padding: 5px;
+    }
+
+    nav h3 {
+        font-size: 3vw;
+        margin-left: 5px;
+    }
+
+    #koktelindo_nav_icon {
+        width: 5vw;
+    }
+}
+
+/* 500px */
+@media(max-width:500px) {
+    #koktelindo_go_up_arrow {
+        font-size: 9.5vw;
+    }
+
+    #koktelindo_web_intro_1 {
+        font-size: 8vw;
+    }
+
+    #koktelindo_web_intro_2 {
+        font-size: 3vw;
+    }
+
+    #koktelindo_web_intro_3 {
+        font-size: 4.5vw;
+    }
+
+    .web_guidance_div a {
+        font-size: 3vw;
+        padding: 8px 10px;
+    }
+
+    nav h3 {
+        font-size: 3.5vw;
+    }
+
+    #koktelindo_nav_icon {
+        width: 5.5vw;
+    }
+}
+
+/* 400px */
+@media(max-width:400px) {
+    .koktelindo_full_screen_overlay_exit_button {
+        font-size: 3vw;
+        padding: 6px 12px;
+    }
+
+    nav h3 {
+        font-size: 4vw;
+    }
+
+    #koktelindo_nav_icon {
+        width: 6vw;
+    }
+
+    #koktelindo_nav_logo {
+        width: 24vw;
+    }
+
+
+    #koktelindo_nav_options a {
+        font-size: 4.5vw;
+    }
+
+    #koktelindo_close_nav {
+        font-size: 4vw;
+    }
+
+    #koktelindo_our_contact_info div {
+        width: 70vw;
+    }
+
+    footer h1,
+    footer h2 {
+        font-size: 4vw;
+    }
+
+    footer img {
+        width: 8vw;
+    }
+}
+
+/* 320px */
+@media(max-width:320px) {
+    
+}
