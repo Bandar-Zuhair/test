@@ -3,57 +3,24 @@
 
 
 
-
-
-
-/* Just For Test To Send The Spicific text to WhatsApp */
-sendOrderToMyNumber = function () {
-    let orderDetails = "3 ساندويتشات من كنتاكي\n5 مشروبات كوكاكولا\n2 ايسكريم شوكلاته";
-
-    // Encode the message using encodeURIComponent
-    let encodedMessage = encodeURIComponent(orderDetails);
-
-    // Construct the WhatsApp URL
-    let whatsappURL = `https://wa.me/6287720208728?text=${encodedMessage}`;
-
-    // Open WhatsApp in a new window
-    window.open(whatsappURL, '_blank');
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Function For Showing Full Screen Images */
 function koktelindo_show_full_screen_image(src) {
 
     /* Create A Div To Contain The Big Image */
     let FullScreenImgOverlay = document.createElement('div');
-    FullScreenImgOverlay.classList.add("koktelindo_full_screen_img_overlay");
+    FullScreenImgOverlay.id = "koktelindo_full_screen_img_overlay";
 
     /* Create A Button To Exit The Big Image Page */
     let fullScreenOverlayExitButton = document.createElement('a');
     fullScreenOverlayExitButton.classList.add('koktelindo_full_screen_overlay_exit_button');
     fullScreenOverlayExitButton.innerText = "عودة";
+    fullScreenOverlayExitButton.style.zIndex = '1000'; // Ensure the exit button is above the overlay
 
     /* Create The Big Image Element Based on The 'src' Value */
     let FullScreenImg = document.createElement('img');
     FullScreenImg.src = src;
-    FullScreenImg.alt = "استقدام-من-اندونيسيا";
-    FullScreenImg.title = "استقدام-من-اندونيسيا";
+    FullScreenImg.alt = "كوكتيل-اندو";
+    FullScreenImg.title = "كوكتيل-اندو";
     FullScreenImg.classList.add('koktelindo_big_img');
 
     /* Append All The elements inside 'FullScreenImgOverlay' */
@@ -61,48 +28,23 @@ function koktelindo_show_full_screen_image(src) {
     FullScreenImgOverlay.appendChild(FullScreenImg);
     document.body.appendChild(FullScreenImgOverlay);
 
-    /* Hide And Show Different Sections */
-    koktelindo_header.style.display = 'none';
-    koktelindo_accounts_section.style.display = 'none';
-    koktelindo_footer.style.display = 'none';
-
     /* Function To Exit The Big Image Page */
     fullScreenOverlayExitButton.onclick = function () {
-        /* Re-display The Worker Card Details Again */
-        /* Hide And Show Different Sections */
-        koktelindo_header.style.display = 'block';
-        koktelindo_accounts_section.style.display = 'flex';
-        koktelindo_footer.style.display = 'flex';
+        /* Hide The Full Screen Img Overlay */
+        FullScreenImgOverlay.style.display = 'none';
 
         /* Scroll To Center The Element Vertically On The Screen */
         let elementToScrollTo = document.querySelector(`img[src="${src}"]`);
-        if (elementToScrollTo) {
-            const windowHeight = window.innerHeight;
-            const elementHeight = elementToScrollTo.offsetHeight;
-            const elementTop = elementToScrollTo.getBoundingClientRect().top;
-            const scrollY = elementTop - (windowHeight - elementHeight) / 2;
-            window.scrollTo({ top: scrollY });
-        }
 
-        /* Hide And Reset All Data Stored Inside The 'FullScreenImgOverlay' Element */
+        elementToScrollTo.scrollIntoView({
+            block: 'center',
+            inline: 'center',
+        });
+
+        /* Reset All Data Stored Inside The Full Screen Overlay Element */
         FullScreenImgOverlay.innerHTML = '';
-        FullScreenImgOverlay.style.display = 'none';
     }
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Open Website Guidance */
@@ -208,19 +150,18 @@ function koktelindo_websiteLanguage() {
 
 
 
-/* in Case If There is Any Data in The LocalStorage Then Show The 'koktelindo_meal_order_icon' Icon */
-if (localStorage.getItem('orderMessage')) {
-    // Create Button To Show Orders Page
-    let koktelindo_mealOrderIconDiv = document.createElement('div');
-    koktelindo_mealOrderIconDiv.id = 'koktelindo_meal_order_icon_div';
-    koktelindo_mealOrderIconDiv.style.opacity = '0';
-    let koktelindo_mealOrderIcon = `<a href='../../طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
-    koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
-    document.body.appendChild(koktelindo_mealOrderIconDiv);
 
-    // Show The 'koktelindo_meal_order_icon_div' Element By Changing The Opacity Value 
-    document.getElementById('koktelindo_meal_order_icon_div').style.opacity = '1';
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -296,8 +237,7 @@ if (document.getElementById("koktelindo_meal_info_section")) {
     // Create Button To Show Orders Page
     let koktelindo_mealOrderIconDiv = document.createElement('div');
     koktelindo_mealOrderIconDiv.id = 'koktelindo_meal_order_icon_div';
-    koktelindo_mealOrderIconDiv.style.opacity = '0';
-    let koktelindo_mealOrderIcon = `<a href='../../طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
+    let koktelindo_mealOrderIcon = `<a href='https://bandar-zuhair.github.io/test/طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
     koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
     document.body.appendChild(koktelindo_mealOrderIconDiv);
 
@@ -373,7 +313,77 @@ if (document.getElementById("koktelindo_meal_info_section")) {
 
 
     /* Get The Summry Text of The Order And Save it For Later Use */
-    function koktelindo_createOrderText() {
+    koktelindo_createOrderText = function () {
+        // Function to dynamically find elements with IDs matching the pattern 'required_div_' + index
+        function findRequiredDivs() {
+            let index = 1;
+            let requiredDivs = [];
+
+            // Keep searching for elements with IDs matching the pattern until no more are found
+            while (true) {
+                let requiredDiv = document.getElementById('required_div_' + index);
+
+                // If no element is found with the current ID, stop searching
+                if (!requiredDiv) {
+                    break;
+                }
+
+                // Add the found required_div to the array
+                requiredDivs.push(requiredDiv);
+                index++;
+            }
+
+            return requiredDivs;
+        }
+
+        // Function to check if at least one checkbox is checked in each required div
+        function areAllRequiredCheckboxesChecked(requiredDivs) {
+            let allRequiredCheckboxesChecked = true;
+
+            // Check if at least one checkbox is checked in each required div
+            for (let requiredDiv of requiredDivs) {
+                let checkboxes = requiredDiv.querySelectorAll('input[type="checkbox"]');
+                let atLeastOneChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                if (!atLeastOneChecked) {
+                    // Scroll to the middle of the viewport for the element with unchecked checkbox
+                    scrollToMiddle(requiredDiv);
+                    allRequiredCheckboxesChecked = false; // Set the flag to false
+
+                    // Show error message and fade out after 2 seconds
+                    koktelindo_ensure_all_required_box_selected_div.style.opacity = '1';
+                    setTimeout(() => {
+                        koktelindo_ensure_all_required_box_selected_div.style.opacity = '0';
+                    }, 2000);
+                    break; // Exit the loop
+                }
+            }
+
+            return allRequiredCheckboxesChecked;
+        }
+
+        // Function to scroll to the middle of the viewport for a given element
+        function scrollToMiddle(element) {
+            const elementRect = element.getBoundingClientRect();
+            const absoluteElementTop = elementRect.top + window.pageYOffset;
+            const middle = absoluteElementTop - (window.innerHeight / 2 - elementRect.height / 2);
+            window.scrollTo({
+                top: middle,
+                behavior: 'smooth'
+            });
+        }
+
+        // Get the required divs dynamically
+        let requiredDivs = findRequiredDivs();
+
+        // Check if at least one checkbox is checked in each required div
+        let allRequiredCheckboxesChecked = areAllRequiredCheckboxesChecked(requiredDivs);
+
+        // If at least one checkbox is checked in each required div, proceed with the rest of the function
+        if (!allRequiredCheckboxesChecked) {
+            // If any required div doesn't have any checkbox checked, Stop The Process
+            return; // Exit the function
+        }
+
         // Get the inner text of the meal name and details
         let mealName = document.getElementById('koktelindo_meal_name').innerText;
         let mealDetails = document.getElementById('koktelindo_meal_details').innerText;
@@ -398,30 +408,36 @@ if (document.getElementById("koktelindo_meal_info_section")) {
         // Get the meal amount number
         let mealAmountNumber = parseInt(document.getElementById('koktelindo_amountNumberElement').innerText).toLocaleString(); // Format with commas
 
-        // Prepare the console message
-        let consoleMessage = 'اسم الوجبة: ' + mealName + '\n';
-        consoleMessage += 'تفاصيل الوجبة: ' + mealDetails + '\n';
-        consoleMessage += '\nالطلب:\n'; // Add "The Order is" here
-        consoleMessage += orderText;
-        consoleMessage += '\nالعدد: ' + mealAmountNumber; // Add mealAmountNumber here
-        if (noteText !== '') {
-            consoleMessage += '\nملاحظة: ' + noteText;
-        }
-        consoleMessage += '\nالسعر الإجمالي: ' + totalCurrentMealPrice + ' Rp';
+        // Get the web logo source from the element with id "koktelindo_web_logo_no_moving"
+        let webLogoSource = document.getElementById('koktelindo_web_logo_no_moving').src;
+
+        // Create an object to represent the order
+        let order = {
+            mealName: mealName,
+            mealDetails: mealDetails,
+            orderText: orderText,
+            mealAmountNumber: mealAmountNumber,
+            noteText: noteText,
+            totalCurrentMealPrice: totalCurrentMealPrice,
+            webLogoSource: webLogoSource // Save the exact image source
+        };
 
         // Get existing orders from localStorage or initialize as an empty array if not present
         let existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
 
-        // Append the new order to the existing orders array
-        existingOrders.push(consoleMessage);
+        // Append the new order object to the existing orders array
+        existingOrders.push(order);
 
         // Save the updated orders back to localStorage
         localStorage.setItem('orders', JSON.stringify(existingOrders));
 
-        // Display the order text in the console
-        console.log(consoleMessage);
+        // Print the number of orders
+        console.log("Number of orders:", existingOrders.length);
 
-        // Show The 'koktelindo_meal_order_icon_div' Element By Changing The Opacity Value 
+        // Display the order text in the console
+        console.log(order);
+
+
         document.getElementById('koktelindo_meal_order_icon_div').style.opacity = '1';
 
 
@@ -456,179 +472,159 @@ if (document.getElementById("koktelindo_meal_info_section")) {
             // Trigger the fade-out animation by setting opacity to 0
             successBox.style.opacity = '0';
 
+            // Remove the element from
             // Remove the element from the DOM after the fade-out animation completes
             setTimeout(() => {
                 successBox.remove();
             }, 9000); // Wait for the fade-out transition to complete (1.5s)
+
         }, 800); // Wait for 3 seconds before triggering fade-out
-
-
-
-
-        // Print all data in localStorage to the console after 1 second
-        setTimeout(() => {
-            let allOrders = JSON.parse(localStorage.getItem('orders'));
-            let totalPrices = 0;
-
-            console.log("All Orders:");
-            allOrders.forEach((order, index) => {
-                console.log(order);
-                // Add a break line after each order, except for the last one
-                if (index < allOrders.length - 1) {
-                    console.log(""); // Empty line
-                }
-
-                // Extract the total price from the order and add it to the totalPrices variable
-                let match = order.match(/السعر الإجمالي: ([\d,]+(\.\d+)?)/);
-                if (match && match[1]) {
-                    totalPrices += parseFloat(match[1].replace(/,/g, ''));
-                }
-            });
-
-            // Display the total price once at the end of the displayed data
-            console.log('Rp ' + "السعر النهائي لجميع الطلبات: " + totalPrices.toLocaleString());
-
-            /* // Clear localStorage after 5 seconds
-            setTimeout(() => {
-                localStorage.removeItem('orders');
-                console.log("LocalStorage Cleared");
-            }, 5000); */
-
-        }, 1000);
     }
-
-};
-
-/* Make The Old Box Unchecked And Only The New Box Checked */
-if (document.getElementById("koktelindo_meal_info_section")) {
-    koktelindo_uncheckOldBox = function (clickedBoxId) {
-        // Get the parent div of the clicked checkbox
-        const parentDiv = document.getElementById(clickedBoxId).closest('.koktelindo_meal_info_options_div');
-
-        // Get all checkboxes within the parent div
-        const checkboxes = parentDiv.querySelectorAll('input[type="checkbox"]');
-
-        // Uncheck all checkboxes except for the clicked checkbox
-        checkboxes.forEach(checkbox => {
-            if (checkbox.id !== clickedBoxId) {
-                checkbox.checked = false;
-            }
-        });
-    };
 }
-
-/* Make The TextArea in The koktelindo_meal_info_section Resposnive With The Text Inside */
-if (document.getElementById("koktelindo_meal_info_section")) {
-    let koktelindo_meal_info_note_textarea = document.querySelectorAll('.koktelindo_meal_info_note_textarea');
-    koktelindo_meal_info_note_textarea.forEach(textarea => {
-        textarea.addEventListener('keyup', e => {
-
-            textarea.style.height = '50px';
-
-            let scHeight = e.target.scrollHeight;
-
-            textarea.style.height = `${scHeight}px`;
-        });
-    });
-}
-
-
 
 /* Function To Create Order Details Page Content */
 if (document.getElementById("koktelindo_order_details_body_id")) {
 
+    /* Create Content For The Basic Orders Page */
     let all_order_page_content = `
-    
         <div class="koktelindo_order_details_div" id="koktelindo_order_details_div_id" style="display: flex;">
             <h1 class="koktelindo_order_details_title">طلباتك جاهزة للإرسال</h1>
 
-            <div class='koktelindo_order_finished_card_area' id='koktelindo_order_finished_card_area_id'>
 
-                <div id='koktelindo_order_finished_card'></div>
-
-            </div>
+            <div class='koktelindo_order_finished_card_area' id='koktelindo_order_finished_card_area_id'></div>
 
             <div>
-                <h4 id='koktelindo_delete_all_orders_button' onclick='koktelindo_ensure_delete_all_orders_function();'>حذف جميع الطلبات</h4>
+                <h4 id='koktelindo_delete_all_orders_button' onclick='koktelindo_ensure_delete_all_orders_box(this)'>حذف جميع الطلبات</h4>
             </div>
 
-            <div id="koktelindo_koktelindo_order_details_bottom_button_div">
-                <h4 id="koktelindo_order_details_final_price_title">السعر الإجمالي لجميع الطلبات 540,000 Rp (مع سعر التوصيل)
-                </h4>
-                <h4 id='koktelindo_sendOrderButton' onclick="koktelindo_createFinalWhatsAppMessage()">ارسال الطلبات عبر الواتس
-                </h4>
+            <div class="koktelindo_koktelindo_order_details_bottom_button_div" id='koktelindo_total_order_price_text'></div>
+
+            <div class="koktelindo_koktelindo_order_details_bottom_button_div">
+                <h4 id='koktelindo_sendOrderButton' onclick="koktelindo_createFinalWhatsAppMessage()">ارسال الطلبات عبر الواتس</h4>
             </div>
 
             <a href="توصيل-مطاعم.html" class="koktelindo_full_screen_overlay_exit_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> ..قسم المطاعم</a>
+        </div>`;
+
+        /* Set The Inner HTML Code of The 'all_order_page_content' Inside The 'koktelindo_order_details_body_id' Element */
+        document.getElementById('koktelindo_order_details_body_id').innerHTML = all_order_page_content;
 
 
+    /* in Case if There Was Any Data in The Orders Key in The LocalStorage Then Do The Following Codes */
+    if (localStorage.getItem('orders')) {
 
 
-            <div id='koktelindo_ensure_delete_all_orders_overlay' style='display:none'>
-                <div id='koktelindo_ensure_delete_all_orders_div'>
-                    <h6>متاكد من حذف جميع الطلبات؟</h6>
+        // Parse orders from localStorage
+        let orders = JSON.parse(localStorage.getItem('orders'));
 
-                    <div id='koktelindo_ensure_delete_all_orders_answer_div'>
-                        <h6 onclick='koktelindo_delete_all_orders_function(this)'>نعم</h6>
-                        <h6 onclick='koktelindo_delete_all_orders_function(this)'>عودة</h6>
+        // Calculate the total price by summing up the values of totalCurrentMealPrice for each order
+        let totalPrice = orders.reduce((acc, order) => acc + parseFloat(order.totalCurrentMealPrice.replace(',', '')), 0);
+
+        // Calculate the delivery fee by multiplying the number of orders by 20000
+        let deliveryFee = orders.length * 20000;
+
+        // Add the delivery fee to the total price
+        let totalPriceWithDelivery = totalPrice + deliveryFee;
+
+
+        // Loop through each order data
+        orders.forEach((orderData, index) => {
+            // Create the element for each order
+            let localStorageOrderCardFinished = document.createElement('div');
+            localStorageOrderCardFinished.classList.add('koktelindo_order_finished_card');
+
+            // Construct the inner HTML content for the order
+            let localStorageOrderCardContent = `
+                <h2 onclick="koktelindo_show_order_details_page(${index})">طلب رقم ${index + 1}</h2>
+                <img src='${orderData.imgSrc}' alt='كوكتيل-اندو-توصيل-مطاعم' onclick="koktelindo_show_order_details_page(${index})" title="كوكتيل-اندو-للتوصيل-من-المطاعم">
+                <div>
+                    <h3 onclick="koktelindo_show_order_details_page(${index})">السعر مع التوصيل = ${(orderData.totalCurrentMealPrice + 20000).toLocaleString()} Rp</h3>
+                </div>
+                <div class='koktelindo_orderFinished_info_and_delete'>
+                    <h3 onclick="koktelindo_show_order_details_page(${index})">تفاصيل الطلب</h3>
+                    <h3 onclick="koktelindo_ensure_delete_all_orders_box(this)">حذف الطلب</h3>
+                </div>
+                
+                <div id='koktelindo_ensure_delete_all_orders_overlay' style='display:none'>
+                    <div id='koktelindo_ensure_delete_all_orders_div'>
+                        <h6>متاكد من حذف جميع الطلبات؟</h6>
+                        <div id='koktelindo_ensure_delete_all_orders_answer_div'>
+                            <h6 onclick='koktelindo_delete_all_orders_function(this)'>نعم</h6>
+                            <h6 onclick='koktelindo_delete_all_orders_function(this)'>عودة</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    
-    `;
 
-    koktelindo_order_details_body_id.innerHTML = all_order_page_content;
+                <div id='koktelindo_ensure_delete_this_orders_overlay' style='display:none'>
+                    <div id='koktelindo_ensure_delete_all_orders_div'>
+                        <h6>متاكد من حذف هذا الطلب؟</h6>
+                        <div id='koktelindo_ensure_delete_all_orders_answer_div'>
+                            <h6 onclick='koktelindo_delete_this_orders_function(this, ${index})'>نعم</h6>
+                            <h6 onclick='koktelindo_delete_this_orders_function(this>عودة</h6>
+                        </div>
+                    </div>
+                </div>
+                
+                `;
+
+            // Assign the HTML content to the created element
+            localStorageOrderCardFinished.innerHTML = localStorageOrderCardContent;
+
+            // Append the order element to the parent container
+            koktelindo_order_finished_card_area_id.appendChild(localStorageOrderCardFinished);
 
 
-    if (localStorage.getItem('orders')) {
-        // Create inner 'koktelindo_order_finished_card' Content
+            let koktelindo_order_details_final_price_title_h4 = `<h4 id="koktelindo_order_details_final_price_title">السعر الإجمالي لجميع الطلبات = ${(totalPriceWithDelivery).toLocaleString()} Rp (مع سعر التوصيل)</h4>`;
+            document.getElementById('koktelindo_total_order_price_text').innerHTML = koktelindo_order_details_final_price_title_h4;
+        });
 
-        let localStorageOrderCardContent = `
-        
-            <h2>طلب رقم 1</h2>
-            <img src="../../koktelindo_store_card_logo/1.png" alt''>
-
-            <div>
-                <h3 onclick="koktelindo_show_order_details_page()">سعر التوصيل = 15,000 Rp</h3>
-            </div>
-
-            <div id='koktelindo_orderFinished_info_and_delete'>
-                <h3 onclick="koktelindo_show_order_details_page()">تفاصيل الطلب</h3>
-                <h3>حذف الطلب</h3>
-            </div>
-
-        `
-
-        document.getElementById('koktelindo_order_finished_card').innerHTML = localStorageOrderCardContent;
-
+        // Set opacity to 1 if there are orders
+        koktelindo_delete_all_orders_button.style.display = 'block';
     } else {
+
+        // Create the element for each order
+        let localStorageOrderCardFinished = document.createElement('div');
+        localStorageOrderCardFinished.classList.add('koktelindo_order_finished_card');
         let localStorageOrderCardContent = `
-        
-            <h2 id='koktelindo_there_is_no_orders_text'>لاتوجد اي طلبات بعد..<ion-icon name="telescope-outline"></ion-icon></h2>
+            <h1 id='koktelindo_there_is_no_orders_text'>لاتوجد اي طلبات بعد..<ion-icon name="telescope-outline"></ion-icon></h1>`;
+        koktelindo_order_finished_card_area_id.innerHTML = localStorageOrderCardContent;
 
-        `
-        document.getElementById('koktelindo_order_finished_card').innerHTML = localStorageOrderCardContent;
-
+        // Set opacity to 1 if there are orders
+        koktelindo_delete_all_orders_button.style.display = 'none';
     }
 
 
-    koktelindo_ensure_delete_all_orders_function = function () {
-        document.getElementById('koktelindo_ensure_delete_all_orders_overlay').style.display = 'block';
+
+    /* Function To Show The Ensure Delete Box */
+    koktelindo_ensure_delete_all_orders_box = function (clickedDeleteButton) {
+        if (clickedDeleteButton.innerText === 'حذف الطلب') {
+            document.getElementById('koktelindo_ensure_delete_this_orders_overlay').style.display = 'block';
+
+        } else {
+            document.getElementById('koktelindo_ensure_delete_all_orders_overlay').style.display = 'block';
+        }
     }
 
 
+
+    /* Function To Delete All Orders Data */
     koktelindo_delete_all_orders_function = function (clickedDeleteAnswer) {
 
+        /* First Check if The Clicked Button is 'عودة' or 'نعم' */
         if (clickedDeleteAnswer.innerText === 'عودة') {
+            /* Hide The Ensure Box Element */
             document.getElementById('koktelindo_ensure_delete_all_orders_overlay').style.display = 'none';
 
         } else {
 
+            /* Hide The Ensure Box Element */
             document.getElementById('koktelindo_ensure_delete_all_orders_overlay').style.display = 'none';
 
             // Clear All Data in LocalStorage
             localStorage.removeItem('orders');
+
+            /* Also Delete The Total price H4 Element */
+            document.getElementById('koktelindo_total_order_price_text').innerHTML = '';
 
             // Create a box with the text "تم حذف جميع الطلبات"
             let successBox = document.createElement('div');
@@ -668,10 +664,431 @@ if (document.getElementById("koktelindo_order_details_body_id")) {
             }, 800); // Wait for 3 seconds before triggering fade-out
 
 
-            setTimeout(() => { location.reload(); }, 1400);
+            // Call renderOrders function to initially render orders
+            renderOrders();
         }
     }
+
+
+
+
+
+
+    /* Function To Delete Only One Order Data */
+    koktelindo_delete_this_orders_function = function (clickedDeleteAnswer, indexNumber) {
+
+        if (clickedDeleteAnswer.innerText === 'عودة') {
+            /* Hide The Ensure Box Element */
+            document.getElementById('koktelindo_ensure_delete_this_orders_overlay').style.display = 'none';
+
+        } else {
+            /* Hide The Ensure Box Element */
+            document.getElementById('koktelindo_ensure_delete_this_orders_overlay').style.display = 'none';
+
+            /* Store The Orders Key Data in A Variable */
+            let orders = JSON.parse(localStorage.getItem('orders'));
+
+            // Remove the order Key with the specified index
+            orders.splice(indexNumber, 1);
+
+            // Save the updated orders back to localStorage
+            localStorage.setItem('orders', JSON.stringify(orders));
+
+            // Check if Orders Key is Empty Then Delete All The Orders Key Compeletly
+            if (!orders || orders.length === 0) {
+                // Remove the orders key from localStorage
+                localStorage.removeItem('orders');
+
+                /* Also Delete The Total price H4 Element */
+                document.getElementById('koktelindo_total_order_price_text').innerHTML = '';
+            }
+
+            // Refresh the page or update the display to reflect the changes
+            renderOrders();
+
+            // Create a box with the text "تم حذف جميع الطلبات"
+            let successBox = document.createElement('div');
+            successBox.textContent = 'تم حذف الطلب';
+            successBox.classList.add('success-box');
+            document.body.appendChild(successBox);
+
+            // Apply styles to the success box
+            successBox.style.position = 'fixed';
+            successBox.style.top = '50%';
+            successBox.style.left = '50%';
+            successBox.style.transform = 'translate(-50%, 100%)';
+            successBox.style.padding = '10px';
+            successBox.style.backgroundColor = 'white';
+            successBox.style.color = 'black';
+            successBox.style.borderRadius = '7px';
+            successBox.style.textAlign = 'center';
+            successBox.style.boxShadow = '0 0 5px 0.5px black';
+            successBox.style.transition = 'transform 1.2s, opacity 1.5s'; // Adjusted transition property
+            successBox.style.fontSize = '20px'; // Increased font size for the text
+
+            // Trigger the slide and fade-in animation by setting the final transform value and opacity to 1
+            setTimeout(() => {
+                successBox.style.transform = 'translate(-50%, -50%)'; // Slide animation
+                successBox.style.opacity = '1'; // Fade-in animation
+            }, 10);
+
+            // Remove the success box after 3 seconds
+            setTimeout(() => {
+                // Trigger the fade-out animation by setting opacity to 0
+                successBox.style.opacity = '0';
+
+                // Remove the element from the DOM after the fade-out animation completes
+                setTimeout(() => {
+                    successBox.remove();
+                }, 9000); // Wait for the fade-out transition to complete (1.5s)
+            }, 800); // Wait for 3 seconds before triggering fade-out
+        }
+    }
+
+
+
+    // Function to render the orders
+    function renderOrders() {
+        // Get the container for displaying orders
+        koktelindo_order_finished_card_area_id.innerHTML = ''; // Clear the existing content
+
+        /* in Case if There is Data in The Orders Key */
+        if (localStorage.getItem('orders')) {
+            // Parse orders from localStorage
+            let orders = JSON.parse(localStorage.getItem('orders'));
+
+            // Loop through each order data
+            orders.forEach((orderData, index) => {
+                // Create the element for each order
+                let localStorageOrderCardFinished = document.createElement('div');
+                localStorageOrderCardFinished.classList.add('koktelindo_order_finished_card');
+
+                // Construct the inner HTML content for the order
+                let localStorageOrderCardContent = `
+                    <h2 onclick="koktelindo_show_order_details_page(${index})">طلب رقم ${index + 1}</h2>
+                        <img src='${orderData.imgSrc}' alt='كوكتيل-اندو-للتوصيل-من-المطاعم' onclick="koktelindo_show_order_details_page(${index})" title="كوكتيل-اندو-للتوصيل-من-المطاعم">
+                    <div>
+                        <h3 onclick="koktelindo_show_order_details_page(${index})">السعر مع التوصيل = ${(parseFloat(orderData.totalCurrentMealPrice.replace(',', '')) + 20000).toLocaleString()} Rp</h3>
+                    </div>
+                    <div class='koktelindo_orderFinished_info_and_delete'>
+                        <h3 onclick="koktelindo_show_order_details_page(${index})">تفاصيل الطلب</h3>
+                        <h3 onclick="koktelindo_ensure_delete_all_orders_box(this)">حذف الطلب</h3>
+                    </div>
+                    
+                    
+                    <div id='koktelindo_ensure_delete_all_orders_overlay' style='display:none'>
+                        <div id='koktelindo_ensure_delete_all_orders_div'>
+                            <h6>متاكد من حذف جميع الطلبات؟</h6>
+                            <div id='koktelindo_ensure_delete_all_orders_answer_div'>
+                                <h6 onclick='koktelindo_delete_all_orders_function(this)'>نعم</h6>
+                                <h6 onclick='koktelindo_delete_all_orders_function(this)'>عودة</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id='koktelindo_ensure_delete_this_orders_overlay' style='display:none'>
+                        <div id='koktelindo_ensure_delete_all_orders_div'>
+                            <h6>متاكد من حذف هذا الطلب؟</h6>
+                            <div id='koktelindo_ensure_delete_all_orders_answer_div'>
+                                <h6 onclick='koktelindo_delete_this_orders_function(this, ${index})'>نعم</h6>
+                                <h6 onclick='koktelindo_delete_this_orders_function(this)'>عودة</h6>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+
+                // Assign the HTML content to the created element
+                localStorageOrderCardFinished.innerHTML = localStorageOrderCardContent;
+
+                // Append the order element to the parent container
+                koktelindo_order_finished_card_area_id.appendChild(localStorageOrderCardFinished);
+            });
+
+            // Set opacity to 1 if there are orders
+            koktelindo_delete_all_orders_button.style.display = 'block';
+        } else {
+
+            // Create the element for each order
+            let localStorageOrderCardFinished = document.createElement('div');
+            localStorageOrderCardFinished.classList.add('koktelindo_order_finished_card');
+            let localStorageOrderCardContent = `
+                <h1 id='koktelindo_there_is_no_orders_text'>لاتوجد اي طلبات بعد..<ion-icon name="telescope-outline"></ion-icon></h1>`;
+            koktelindo_order_finished_card_area_id.innerHTML = localStorageOrderCardContent;
+
+            // Set opacity to 1 if there are orders
+            koktelindo_delete_all_orders_button.style.display = 'none';
+        }
+    }
+
+    // Call renderOrders function to initially render orders
+    renderOrders();
+
+
+
+
+    // Function to show order details
+    function koktelindo_show_order_details_page(orderIndexNumber) {
+
+        // Retrieve orders from localStorage
+        let orders = JSON.parse(localStorage.getItem('orders'));
+        if (!orders) return; // Exit if there are no orders
+
+        let order = orders[orderIndexNumber];
+        if (!order) return; // Exit if the order is not found
+
+        // Create order details HTML content
+        let orderDetailsContent = `
+            <div id="koktelindo_order_details_text_img">
+                <img src="${order.webLogoSource}" alt="كوكتيل-اندو-للتوصيل-من-المطاعم" id="koktelindo_weblogo" title="كوكتيل-اندو-للتوصيل-من-المطاعم"  onclick="koktelindo_show_full_screen_image(this.src)">
+            </div>
+            <div>
+                <h1 class="koktelindo_order_details_title">تفاصيل الطلب رقم ${orderIndexNumber + 1}</h1>
+            </div>
+            <div id="koktelindo_order_details_text_background">
+                <h4>الاسم: ${order.mealName}</h4>
+                <h4>الوصف: ${order.mealDetails}</h4>
+                <h4>الطلب:</h4>
+                ${order.orderText.split('\n').map(line => `<h4>${line}</h4>`).join('')}
+                <h4>${order.noteText}</h4>
+                <h4>عدد الطلب: ${order.mealAmountNumber}</h4>
+                <h4>سعر التوصيل = 20,000 Rp</h4>
+                <h4>سعر الطلب = ${order.totalCurrentMealPrice} (بدون سعر التوصيل)</h4>
+            </div>
+            <div id="koktelindo_koktelindo_order_details_text_bottom_button_div">
+                <h5 onclick="koktelindo_hide_order_details_page()">عودة</h5>
+                <h5 onclick="koktelindo_ensure_delete_text_orders_box()">حذف الطلب</h5>
+            </div>
+
+            <div id='koktelindo_ensure_delete_text_orders_overlay' style='display:none'>
+                <div id='koktelindo_ensure_delete_all_orders_div'>
+                    <h6>متاكد من حذف هذا الطلب؟</h6>
+                    <div id='koktelindo_ensure_delete_all_orders_answer_div'>
+                        <h6 onclick='koktelindo_delete_text_orders_function(this, ${orderIndexNumber})'>نعم</h6>
+                        <h6 onclick='koktelindo_delete_text_orders_function(this)'>عودة</h6>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Hide the order list container
+        document.getElementById('koktelindo_order_details_div_id').style.display = 'none';
+
+        // Create a new div element to hold the order details content
+        let orderDetailsContainer = document.createElement('div');
+        orderDetailsContainer.id = 'koktelindo_order_details_text_div';
+        orderDetailsContainer.innerHTML = orderDetailsContent;
+
+        // Append the order details content to the order details container
+        document.getElementById('koktelindo_order_details_body_id').appendChild(orderDetailsContainer);
+    }
+
+    // Function to hide order details
+    function koktelindo_hide_order_details_page() {
+
+        // Remove the order details content from the container
+        let orderDetailsContainer = document.getElementById('koktelindo_order_details_text_div');
+        if (orderDetailsContainer) {
+            orderDetailsContainer.remove();
+        }
+
+        // Show the order list container
+        document.getElementById('koktelindo_order_details_div_id').style.display = 'flex';
+    }
+
+    /* Function To Show Ensure Delete Box From The Order Text Page */
+    koktelindo_ensure_delete_text_orders_box = function () {
+        document.getElementById('koktelindo_ensure_delete_text_orders_overlay').style.display = 'block';
+
+    }
+
+    /* if The Clicked Button From The Order Text Page */
+    koktelindo_delete_text_orders_function = function (clickedButtonAnswer, indexNumber) {
+        if (clickedButtonAnswer.innerText === 'عودة') {
+            /* Hide The Ensure Box Element */
+            document.getElementById('koktelindo_ensure_delete_text_orders_overlay').style.display = 'none';
+
+        } else {
+
+            /* Hide The Ensure Box Element */
+            document.getElementById('koktelindo_ensure_delete_text_orders_overlay').style.display = 'none';
+
+            /* Store The Orders Key Data in A Variable */
+            let orders = JSON.parse(localStorage.getItem('orders'));
+
+            // Remove the order with the specified index
+            orders.splice(indexNumber, 1);
+
+            // Save the updated orders back to localStorage
+            localStorage.setItem('orders', JSON.stringify(orders));
+
+            // Check if orders is empty or null
+            if (!orders || orders.length === 0) {
+                // Remove the orders key from localStorage
+                localStorage.removeItem('orders');
+
+                /* Also Delete The Total price H4 Element */
+                document.getElementById('koktelindo_total_order_price_text').innerHTML = '';
+            }
+
+            // Refresh the page or update the display to reflect the changes
+            // For example, you can re-render the order list
+            renderOrders();
+
+            // Create a box with the text "تم حذف جميع الطلبات"
+            let successBox = document.createElement('div');
+            successBox.textContent = 'تم حذف الطلب';
+            successBox.classList.add('success-box');
+            document.body.appendChild(successBox);
+
+            // Apply styles to the success box
+            successBox.style.position = 'fixed';
+            successBox.style.top = '50%';
+            successBox.style.left = '50%';
+            successBox.style.transform = 'translate(-50%, 100%)';
+            successBox.style.padding = '10px';
+            successBox.style.backgroundColor = 'white';
+            successBox.style.color = 'black';
+            successBox.style.borderRadius = '7px';
+            successBox.style.textAlign = 'center';
+            successBox.style.boxShadow = '0 0 5px 0.5px black';
+            successBox.style.transition = 'transform 1.2s, opacity 1.5s'; // Adjusted transition property
+            successBox.style.fontSize = '20px'; // Increased font size for the text
+
+            // Trigger the slide and fade-in animation by setting the final transform value and opacity to 1
+            setTimeout(() => {
+                successBox.style.transform = 'translate(-50%, -50%)'; // Slide animation
+                successBox.style.opacity = '1'; // Fade-in animation
+            }, 10);
+
+            // Remove the success box after 3 seconds
+            setTimeout(() => {
+                // Trigger the fade-out animation by setting opacity to 0
+                successBox.style.opacity = '0';
+
+                // Remove the element from the DOM after the fade-out animation completes
+                setTimeout(() => {
+                    successBox.remove();
+                }, 9000); // Wait for the fade-out transition to complete (1.5s)
+            }, 800); // Wait for 3 seconds before triggering fade-out
+
+
+            // Remove the order details content from the container
+            let orderDetailsContainer = document.getElementById('koktelindo_order_details_text_div');
+            if (orderDetailsContainer) {
+                orderDetailsContainer.remove();
+            }
+
+            // Show the order list container
+            document.getElementById('koktelindo_order_details_div_id').style.display = 'flex';
+
+        }
+    }
+
+    /* Function To Create The Final WhatsApp Message */
+    koktelindo_createFinalWhatsAppMessage = function () {
+        // Retrieve orders from localStorage
+        let orders = JSON.parse(localStorage.getItem('orders'));
+    
+        // Initialize an array to store order details
+        let orderDetails = [];
+    
+        // Initialize a variable to store the grand total
+        let grandTotal = 0;
+    
+        // Loop through each order and extract relevant information
+        orders.forEach((order, index) => {
+            let totalWithDelivery = parseFloat(order.totalCurrentMealPrice.replace(',', '')) + 20000;
+            grandTotal += totalWithDelivery;
+    
+            // Split order.orderText by newline character and prepend each line with its index number
+            let orderedText = order.orderText.split('\n').map((line, i) => `${i + 1}- ${line}`).join('\n');
+    
+            let orderInfo = `${index + 1}. ${order.mealName}\n`;
+            orderInfo += `   - الوصف: ${order.mealDetails}\n`;
+            orderInfo += `   - الطلب:\n${orderedText}\n`;
+            orderInfo += `   - الملاحظات: ${order.noteText}\n`;
+            orderInfo += `   - سعر التوصيل: 20,000 Rp\n`;
+            orderInfo += `   - السعر مع التوصيل: ${totalWithDelivery.toLocaleString()} Rp\n`;
+            orderInfo += `___________________________________\n`;
+    
+            // Push the order information to the array
+            orderDetails.push(orderInfo);
+        });
+    
+        // Construct the final message by joining all order details
+        let finalMessage = "طلباتك:\n";
+        finalMessage += orderDetails.join('');
+    
+        // Append the grand total to the final message
+        finalMessage += `- السعر الإجمالي للطلبات مع التوصيل: ${grandTotal.toLocaleString()} Rp\n`;
+        finalMessage += `___________________________________\n`;
+        finalMessage += `- تعليمات مهمة!\n`;
+        finalMessage += `1- يرجى ارسال موقعك عن طريق الواتس اب\n`;
+        finalMessage += `2- الدفع عند الإستلام كاش فقط\n`;
+    
+        // Encode the message using encodeURIComponent
+        let encodedMessage = encodeURIComponent(finalMessage);
+    
+        // Construct the WhatsApp URL
+        let whatsappURL = `https://wa.me/6282246117155?text=${encodedMessage}`;
+    
+        // Open WhatsApp in a new window
+        window.open(whatsappURL, '_blank');
+    }
 }
+
+/* in Case If There is Any Data in The LocalStorage Then Show The 'koktelindo_meal_order_icon' Icon. if No Data Found Then Hide it*/
+if (localStorage.getItem('orders')) {
+
+    // Create Button To Show Orders Page
+    let koktelindo_mealOrderIconDiv = document.createElement('div');
+    koktelindo_mealOrderIconDiv.id = 'koktelindo_meal_order_icon_div';
+    let koktelindo_mealOrderIcon = `<a href='https://bandar-zuhair.github.io/test/طلباتك.html' id="koktelindo_meal_order_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
+    koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
+    document.body.appendChild(koktelindo_mealOrderIconDiv);
+} else {
+    /* if There is No Data in The Orders Key Then Check if The 'koktelindo_meal_order_icon_div' Was Visible Then Hide it */
+    if (document.getElementById('koktelindo_meal_order_icon_div')) {
+        document.getElementById('koktelindo_meal_order_icon_div').style.opacity = '0';
+        console.log("Hide Itttt");
+    }
+}
+
+/* Make The Old Box Unchecked And Only The New Box Checked */
+if (document.getElementById("koktelindo_meal_info_section")) {
+    koktelindo_uncheckOldBox = function (clickedBoxId) {
+        // Get the parent div of the clicked checkbox
+        const parentDiv = document.getElementById(clickedBoxId).closest('.koktelindo_meal_info_options_div');
+
+        // Get all checkboxes within the parent div
+        const checkboxes = parentDiv.querySelectorAll('input[type="checkbox"]');
+
+        // Uncheck all checkboxes except for the clicked checkbox
+        checkboxes.forEach(checkbox => {
+            if (checkbox.id !== clickedBoxId) {
+                checkbox.checked = false;
+            }
+        });
+    };
+}
+
+/* Make The TextArea in The koktelindo_meal_info_section Resposnive With The Text Inside */
+if (document.getElementById("koktelindo_meal_info_section")) {
+    let koktelindo_meal_info_note_textarea = document.querySelectorAll('.koktelindo_meal_info_note_textarea');
+    koktelindo_meal_info_note_textarea.forEach(textarea => {
+        textarea.addEventListener('keyup', e => {
+
+            textarea.style.height = '50px';
+
+            let scHeight = e.target.scrollHeight;
+
+            textarea.style.height = `${scHeight}px`;
+        });
+    });
+}
+
+
+
 
 
 
@@ -722,50 +1139,6 @@ if (document.getElementById("koktelindo_menu_nav")) {
     });
 };
 
-
-
-
-
-
-
-
-/* Function To Show or Hide Order Details in The Screen As Test */
-if (document.getElementById("koktelindo_order_finished_card_area")) {
-    koktelindo_show_order_details_page = function () {
-
-        if (koktelindo_order_details_div_id.style.display === 'flex') {
-
-            koktelindo_order_details_div_id.style.display = 'none';
-            koktelindo_order_details_text_div.style.display = 'block';
-        } else {
-
-            koktelindo_order_details_div_id.style.display = 'flex';
-            koktelindo_order_details_text_div.style.display = 'none';
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Hide And Show nav Bar */
 let koktelindo_showNavOptions = () => {
     koktelindo_nav_options.style.opacity = "1";
@@ -806,6 +1179,7 @@ if (document.getElementById("koktelindo_nav_options")) {
         }
     });
 }
+
 
 
 
