@@ -153,6 +153,58 @@ function koktelindo_websiteLanguage() {
 
 
 
+/* // Function to prompt for password and change button color and text
+function changeButtonColor(event) {
+    var button = event.target;
+    // Prompt for password
+    var password = prompt("Please enter the password:");
+    // Check if the password is correct
+    if (password === "change") {
+        // Toggle between texts "متوفر" and "نفدت الكمية"
+        if (button.textContent.trim() === "متوفر") {
+            button.textContent = "نفدت الكمية";
+            button.style.backgroundColor = "#ff0000"; // Change background color to red
+        } else {
+            button.textContent = "متوفر";
+            button.style.backgroundColor = "rgb(9, 189, 255)"; // Change background color to default
+        }
+        // Save state in local storage
+        localStorage.setItem('button_' + button.dataset.buttonId, button.textContent.trim());
+        // Reattach the click event listener
+        button.addEventListener('click', changeButtonColor);
+    } else {
+        alert("Incorrect password!");
+    }
+}
+
+// Function to set up event listeners for buttons
+function setUpButtonListeners() {
+    var buttons = document.querySelectorAll('.koktelindo_kfc_pass_button');
+    buttons.forEach(function (button) {
+        button.addEventListener('click', changeButtonColor);
+    });
+}
+
+// On page load, apply changes only to previously clicked buttons
+var buttons = document.querySelectorAll('.koktelindo_kfc_pass_button');
+buttons.forEach(function (button) {
+    var savedText = localStorage.getItem('button_' + button.dataset.buttonId);
+    if (savedText === 'نفدت الكمية') {
+        button.textContent = "نفدت الكمية";
+        button.style.backgroundColor = "#ff0000"; // Change background color to red
+    } else if (savedText === 'متوفر') {
+        button.textContent = "متوفر";
+        button.style.backgroundColor = "rgb(9, 189, 255)"; // Change background color to default
+    }
+});
+
+// Set up event listeners for buttons
+setUpButtonListeners(); */
+
+
+
+/* localStorage.removeItem('button_button1'); */
+/* localStorage.removeItem('button_button2'); */
 
 
 
@@ -170,6 +222,25 @@ function koktelindo_websiteLanguage() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Down Resturant Code Down */
 
 /* Function To Show Meal Info Elements And Culculate The Price Numbers */
 if (document.getElementById("koktelindo_meal_info_section")) {
@@ -506,8 +577,8 @@ if (document.getElementById("koktelindo_order_details_body_id")) {
             <a href="توصيل-مطاعم.html" class="koktelindo_full_screen_overlay_exit_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> ..قسم المطاعم</a>
         </div>`;
 
-        /* Set The Inner HTML Code of The 'all_order_page_content' Inside The 'koktelindo_order_details_body_id' Element */
-        document.getElementById('koktelindo_order_details_body_id').innerHTML = all_order_page_content;
+    /* Set The Inner HTML Code of The 'all_order_page_content' Inside The 'koktelindo_order_details_body_id' Element */
+    document.getElementById('koktelindo_order_details_body_id').innerHTML = all_order_page_content;
 
 
     /* in Case if There Was Any Data in The Orders Key in The LocalStorage Then Do The Following Codes */
@@ -988,21 +1059,21 @@ if (document.getElementById("koktelindo_order_details_body_id")) {
     koktelindo_createFinalWhatsAppMessage = function () {
         // Retrieve orders from localStorage
         let orders = JSON.parse(localStorage.getItem('orders'));
-    
+
         // Initialize an array to store order details
         let orderDetails = [];
-    
+
         // Initialize a variable to store the grand total
         let grandTotal = 0;
-    
+
         // Loop through each order and extract relevant information
         orders.forEach((order, index) => {
             let totalWithDelivery = parseFloat(order.totalCurrentMealPrice.replace(',', '')) + 20000;
             grandTotal += totalWithDelivery;
-    
+
             // Split order.orderText by newline character and prepend each line with its index number
             let orderedText = order.orderText.split('\n').map((line, i) => `${i + 1}- ${line}`).join('\n');
-    
+
             let orderInfo = `${index + 1}. ${order.mealName}\n`;
             orderInfo += `   - الوصف: ${order.mealDetails}\n`;
             orderInfo += `   - الطلب:\n${orderedText}\n`;
@@ -1010,28 +1081,28 @@ if (document.getElementById("koktelindo_order_details_body_id")) {
             orderInfo += `   - سعر التوصيل: 20,000 Rp\n`;
             orderInfo += `   - السعر مع التوصيل: ${totalWithDelivery.toLocaleString()} Rp\n`;
             orderInfo += `___________________________________\n`;
-    
+
             // Push the order information to the array
             orderDetails.push(orderInfo);
         });
-    
+
         // Construct the final message by joining all order details
         let finalMessage = "طلباتك:\n";
         finalMessage += orderDetails.join('');
-    
+
         // Append the grand total to the final message
         finalMessage += `- السعر الإجمالي للطلبات مع التوصيل: ${grandTotal.toLocaleString()} Rp\n`;
         finalMessage += `___________________________________\n`;
         finalMessage += `- تعليمات مهمة!\n`;
         finalMessage += `1- يرجى ارسال موقعك عن طريق الواتس اب\n`;
         finalMessage += `2- الدفع عند الإستلام كاش فقط\n`;
-    
+
         // Encode the message using encodeURIComponent
         let encodedMessage = encodeURIComponent(finalMessage);
-    
+
         // Construct the WhatsApp URL
         let whatsappURL = `https://wa.me/6282246117155?text=${encodedMessage}`;
-    
+
         // Open WhatsApp in a new window
         window.open(whatsappURL, '_blank');
     }
@@ -1087,8 +1158,7 @@ if (document.getElementById("koktelindo_meal_info_section")) {
     });
 }
 
-
-
+/* Up Resturant Code Up */
 
 
 
@@ -1248,9 +1318,3 @@ let ioniconsNomoduleScript = document.createElement('script');
 ioniconsNomoduleScript.setAttribute('nomodule', '');
 ioniconsNomoduleScript.src = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js';
 document.body.appendChild(ioniconsNomoduleScript);
-
-// Hide The Webpage Name '.html' Extension
-/* if (window.location.pathname.endsWith('.html')) {
-    var newPath = window.location.pathname.replace('.html', '');
-    window.history.replaceState({}, document.title, newPath);
-} */
