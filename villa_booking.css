@@ -1,0 +1,767 @@
+/* Unknow Effects */
+.overlay {
+    background: rgb(40, 40, 40);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.koktelindo_dispaly_none_class {
+    display: none;
+}
+
+#submit_Custom_Cards_Btn {
+    text-decoration: none;
+    background: black;
+    color: white;
+    z-index: 999;
+    font-size: 1.5vw;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: all 0.1s ease-in-out;
+}
+
+#submit_Custom_Cards_Btn:hover {
+    background: white;
+    color: black;
+    transform: scale(1.03);
+}
+
+
+
+
+
+
+
+
+
+
+
+#koktelindo_custom_cards_title,
+.koktelindo_custom_card_box_options h3,
+#koktelindo_refresh_all_cards_btn,
+#koktelindo_go_back_villa_details,
+#koktelindo_go_back_card,
+.koktelindo_villa_details_buttons {
+    background: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 2vw;
+    padding: 8px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 0.5px white;
+    transition: all 0.1s ease-in-out;
+}
+
+#koktelindo_custom_cards_title:hover,
+.koktelindo_custom_card_box_options h3:hover,
+#koktelindo_refresh_all_cards_btn:hover,
+#koktelindo_go_back_villa_details:hover,
+#koktelindo_go_back_card:hover,
+.koktelindo_villa_details_buttons:hover {
+    background: gray;
+    color: white;
+    transform: scale(1.03);
+}
+
+#koktelindo_go_back_card {
+    position: fixed;
+    right: 12px;
+    top: 12px;
+    z-index: 996;
+    border: 1px solid orange;
+    box-shadow: 0px 0px 3px 0.5px white;
+}
+
+#koktelindo_go_back_villa_details {
+    font-size: 2vw;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 996;
+    padding: 8px 14px;
+    border: 1px solid orange;
+    box-shadow: 0px 0px 3px 0.5px white;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Choose Villa Area */
+#koktelindo_choose_villa_area_section {
+    background: linear-gradient(to right, rgb(0, 123, 255), rgb(0, 79, 163));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_villa_area_names_div {
+    background: linear-gradient(to right, rgb(0, 123, 255), rgb(0, 79, 163));
+    width: 100%;
+    padding: 10px 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_villa_area_names_div h3 {
+    background: rgb(255, 166, 0);
+    width: fit-content;
+    font-size: 2vw;
+    margin: 0 20px;
+    padding: 10px 18px;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 2px black;
+    transition: all 0.3s ease-in-out;
+}
+
+#koktelindo_villa_area_names_div h3:hover {
+    transform: scale(1.03);
+    opacity: 5;
+}
+
+
+
+
+
+
+
+/* All Villa Cards */
+.koktelindo_intro_area {
+    background: linear-gradient(to right, rgb(13, 0, 255), rgb(5, 0, 91));
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#custom_Cards_Overlay_Div {
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_all_cards_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.koktelindo_villa_area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 5px;
+    margin-bottom: 20px;
+}
+
+#koktelindo_custom_cards_title {
+    font-size: 3vw;
+    padding: 10px 16px;
+}
+
+#koktelindo_all_custom_card_box_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+#koktelindo_all_custom_card_box_div div {
+    margin: 10px;
+}
+
+.custom_Card_Box {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-bottom: 20px;
+    width: 250px;
+}
+
+
+.koktelindo_custom_card_box_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.koktelindo_custom_card_box_title h1 {
+    color: rgb(0, 255, 0);
+    width: fit-content;
+    font-size: 3vw;
+    margin-bottom: 10px;
+    padding: 8px 14px;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 0.5px white;
+}
+
+.koktelindo_custom_card_box_options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.koktelindo_custom_card_box_options h3 {
+    font-size: 2.5vw;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    width: fit-content;
+}
+
+#koktelindo_no_cards_found_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#koktelindo_no_cards_found_div a {
+    color: orange;
+    font-size: 2.5vw;
+    padding: 10px 18px;
+    margin-top: 10px;
+}
+
+#koktelindo_no_cards_found_div h3 {
+    color: red;
+    padding: 30px;
+    font-size: 3vw;
+}
+
+.koktelindo_villa_card {
+    direction: ltr;
+    background: rgb(0, 0, 0);
+    width: 30vw;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid white;
+    box-shadow: 0px 0px 5px 1px black;
+    transition: all 0.2s ease-in-out;
+}
+
+.koktelindo_villa_card:hover {
+    box-shadow: 0px 0px 15px 1px black;
+}
+
+.koktelindo_villa_card img {
+    width: 50%;
+}
+
+.villa_Info {
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.villa_Info h3 {
+    font-size: 2vw;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.price {
+    color: rgb(0, 255, 0);
+}
+
+.koktelindo_villa_details_text_villa_number {
+    color: orange;
+    width: 100%;
+}
+
+.koktelindo_villa_id {
+    background: rgb(41, 38, 38);
+    color: orange;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+
+
+/* Villa Details */
+.koktelindo_villa_details_card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#koktelindo_villa_details_title {
+    background: linear-gradient(to right, rgb(13, 0, 255), rgb(5, 0, 91));
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+#koktelindo_villa_details_title h2 {
+    background: black;
+    color: rgb(0, 255, 0);
+    font-size: 2vw;
+    padding: 8px 14px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 1px white;
+}
+
+#villa_Details_Topic {
+    display: flex;
+    justify-content: space-between;
+}
+
+#villa_details_location {
+    background: linear-gradient(to right, rgb(0, 123, 255), rgb(0, 79, 163));
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+#villa_details_location h3 {
+    font-size: 2vw;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+#clicked_card_details_location_h1 {
+    color: rgb(0, 255, 0);
+}
+
+#villa_Details_Description {
+    background: linear-gradient(to right, rgb(0, 123, 255), rgb(0, 79, 163));
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#villa_Details_Description h4 {
+    font-size: 2vw;
+    line-height: 1.7;
+}
+
+.Contact_For_More_Info_Btn {
+    text-decoration: none;
+    font-size: 2vw;
+    color: orange;
+    margin: 20px 0;
+    transition: all 0.1s ease-in-out;
+}
+
+.Contact_For_More_Info_Btn:hover {
+    color: white;
+}
+
+#koktelindo_big_img_div {
+    background: linear-gradient(to right, rgb(132, 0, 255), rgb(60, 0, 117));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+#koktelindo_big_img_div img {
+    width: 20vw;
+    margin: 5px 0;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Booking Date Content */
+#koktelindo_booking_date_div_container_overlay{
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_booking_date_div_container {
+    z-index: 997;
+    background: #00ddff;
+    width: 90vw;
+    height: 90vh;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#koktelindo_booking_date_div_container h5 {
+    color: purple;
+    font-size: 4vw;
+    margin-bottom: 50px;
+}
+
+.koktelindo_booking_date_div {
+    background: orange;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0.5px black;
+}
+
+.koktelindo_booking_date_div h6 {
+    font-size: 2.5vw;
+    color: rgb(0, 57, 214);
+    margin-bottom: 20px;
+}
+
+.koktelindo_villa_book_date_note {
+    background: green;
+    width: 90%;
+}
+
+.koktelindo_villa_book_date_note textarea {
+    width: 100%;
+    font-size: 25px;
+    height: 50px;
+    max-height: 250px;
+    padding: 10px;
+    outline: none;
+    resize: none;
+    border-color: rgb(0, 191, 255);
+    border-radius: 7px;
+}
+
+.koktelindo_villa_book_date_note textarea::placeholder {
+    font-size: 25px;
+}
+
+.koktelindo_villa_book_date_note textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+#koktelindo_submit_booking_date_info {
+    background: pink;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#koktelindo_submit_booking_date_info h6 {
+    background: gray;
+    font-size: 2.5vw;
+    margin: 0 50px;
+    padding: 8px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0.5px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+/* 1250px */
+@media(max-width:1250px) {
+    #koktelindo_booking_date_div_container h5 {
+        font-size: 6vw;
+        margin-bottom: 30px;
+    }
+
+    .koktelindo_booking_date_div h6 {
+        font-size: 5vw;
+    }
+
+    #koktelindo_submit_booking_date_info h6 {
+        font-size: 4vw;
+    }
+}
+
+
+
+
+/* 1040px */
+@media(max-width:1040px) {}
+
+
+/* 950px */
+@media(max-width:950px) {
+    #koktelindo_go_back_card {
+        font-size: 2.5vw;
+    }
+
+    #koktelindo_villa_area_names_div h3 {
+        font-size: 4vw;
+        padding: 8px 14px;
+    }
+
+    #koktelindo_custom_cards_title {
+        font-size: 5vw;
+        padding: 8px 14px;
+    }
+
+    .koktelindo_villa_card {
+        width: 35vw;
+    }
+
+    #koktelindo_villa_details_title h2 {
+        font-size: 4vw;
+        padding: 7px 10px;
+    }
+
+    #villa_Details_Description h4 {
+        font-size: 3.5vw;
+    }
+
+    .Contact_For_More_Info_Btn {
+        font-size: 4vw;
+        margin: 20px 0;
+    }
+
+    #villa_details_location h3 {
+        font-size: 4vw;
+    }
+
+    #koktelindo_big_img_div img {
+        width: 35vw;
+    }
+}
+
+
+
+/* 850px */
+@media(max-width:850px) {}
+
+
+/* 760px */
+@media(max-width:760px) {
+    #koktelindo_go_back_villa_details {
+        font-size: 3vw;
+        padding: 5px 10px;
+    }
+}
+
+
+/* 650px */
+@media(max-width:650px) {
+    .koktelindo_villa_card {
+        width: 45vw;
+    }
+
+    .villa_Info h3 {
+        font-size: 3vw;
+    }
+}
+
+
+
+/* 580px */
+@media(max-width:580px) {
+    #koktelindo_big_img_div img {
+        width: 50vw;
+    }
+
+    #koktelindo_booking_date_div_container {
+        width: 100vw;
+        height: 90vh;
+        padding: 0 5px;
+    }
+
+    #koktelindo_booking_date_div_container h5 {
+        font-size: 7.5vw;
+        margin-bottom: 15px;
+    }
+
+    .koktelindo_booking_date_div h6 {
+        font-size: 6.5vw;
+    }
+
+    .koktelindo_villa_book_date_note textarea {
+        font-size: 15px;
+    }
+
+    #koktelindo_submit_booking_date_info h6 {
+        font-size: 5.5vw;
+    }
+}
+
+
+/* 500px */
+@media(max-width:500px) {
+    #koktelindo_go_back_card {
+        font-size: 3vw;
+        padding: 7px 12px;
+    }
+
+    #koktelindo_villa_area_names_div h3 {
+        font-size: 4.5vw;
+        padding: 5px 10px;
+    }
+
+    #koktelindo_custom_cards_title {
+        font-size: 6vw;
+        padding: 5px 10px;
+    }
+
+    .koktelindo_villa_card {
+        width: 55vw;
+        margin: 10px 0;
+    }
+
+    .koktelindo_villa_details_buttons {
+        padding: 5px 10px;
+    }
+
+    #villa_Details_Description h4 {
+        font-size: 4.5vw;
+    }
+
+    .Contact_For_More_Info_Btn {
+        font-size: 5vw;
+    }
+
+    #koktelindo_all_custom_card_box_div div {
+        margin: 5px;
+    }
+
+    .koktelindo_custom_card_box_title h1 {
+        font-size: 5.5vw;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+
+    .koktelindo_custom_card_box_options h3 {
+        font-size: 4vw;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+}
+
+
+
+/* 400px */
+@media(max-width:400px) {
+    #koktelindo_go_back_card {
+        font-size: 3.5vw;
+        padding: 4px 8px;
+    }
+
+    .koktelindo_villa_card {
+        width: 65vw;
+    }
+
+    .villa_Info h3 {
+        font-size: 3.5vw;
+    }
+
+    #koktelindo_big_img_div img {
+        width: 65vw;
+    }
+
+    #koktelindo_booking_date_div_container h5 {
+        font-size: 9vw;
+        margin-bottom: 10px;
+    }
+
+    .koktelindo_booking_date_div h6 {
+        font-size: 8vw;
+        margin-bottom: 15px;
+    }
+
+    #koktelindo_submit_booking_date_info h6 {
+        font-size: 7vw;
+        margin: 0 20px;
+        padding: 5px 10px;
+    }
+}
+
+
+/* 320px */
+@media(max-width:320px) {
+    #koktelindo_go_back_villa_details {
+        font-size: 3.5vw;
+        padding: 4px 8px;
+    }
+
+    #koktelindo_big_img_div img {
+        width: 70vw;
+    }
+}
