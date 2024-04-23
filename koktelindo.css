@@ -2269,7 +2269,7 @@ footer img {
     }
 
     #koktelindo_web_intro_1 {
-        font-size: 10vw;
+        font-size: 6vw;
     }
 
     .koktelindo_web_intro_contact_us {
@@ -2699,6 +2699,10 @@ footer img {
         font-size: 4vw;
     }
 
+    #koktelindo_web_intro_1 {
+        font-size: 8vw;
+    }
+
     #koktelindo_nav_logo {
         width: 19vw;
     }
@@ -2962,10 +2966,6 @@ footer img {
 
 /* 580px */
 @media(max-width:580px) {
-    #koktelindo_web_intro_1 {
-        font-size: 15vw;
-    }
-
     #koktelindo_web_intro_2 {
         font-size: 2.5vw;
     }
@@ -3079,10 +3079,6 @@ footer img {
         font-size: 9.5vw;
     }
 
-    #koktelindo_web_intro_1 {
-        font-size: 17vw;
-    }
-
     #koktelindo_web_intro_2 {
         font-size: 3vw;
     }
@@ -3168,6 +3164,10 @@ footer img {
 
     .koktelindo_success_box{
         font-size: 5vw;
+    }
+
+    #koktelindo_web_intro_1 {
+        font-size: 10vw;
     }
 
     .koktelindo_web_intro_contact_us {
