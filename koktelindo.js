@@ -3340,7 +3340,7 @@ if (document.getElementById("koktelindo_pharmacy_order_details_body_id")) {
 
             <div id="koktelindo_order_check_out_div" style="display: none;"></div>
 
-            <a href="https://bandar-zuhair.github.io/test/صيدلية-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
+            <a href="https://bandar-zuhair.github.io/test/صيدلية-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم الصيدلية</a>
         </div>`;
 
 
@@ -4104,7 +4104,7 @@ if (document.getElementById("koktelindo_shisha_order_details_body_id")) {
 
             <div id="koktelindo_order_check_out_div" style="display: none;"></div>
 
-            <a href="https://bandar-zuhair.github.io/test/معسلات-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
+            <a href="https://bandar-zuhair.github.io/test/معسلات-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم المعسلات</a>
         </div>`;
 
 
