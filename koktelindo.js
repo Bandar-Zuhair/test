@@ -116,7 +116,39 @@ function koktelindo_websiteGuidance(buttonClicked) {
         webGuidanceText = `
             <a>1- اختار نوع الوجبة.</a>
             <a>2- بعد الإنهاء من اختيار الوجبات اذهب لصفحة طلباتك.</a>
-            <a>2- قم بتأكيد الطلب عن طريق إرسال الطلب عبر الواتساب.</a>
+            <a>3- قم بتأكيد الطلب عن طريق إرسال الطلب عبر الواتساب.</a>
+        `;
+
+        /* Pharmacy Page Guidance */
+    } else if (buttonClicked === 'how to use products page') {
+
+        webGuidanceDiv.classList.add('web_guidance_div');
+
+        webGuidanceText = `
+            <a>1- اختار المنتج وقم بإضافته.</a>
+            <a>2- بعد الإنهاء من اختيار المنتجات اذهب لصفحة طلباتك.</a>
+            <a>3- قم بتأكيد الطلب عن طريق إرسال الطلب عبر الواتساب.</a>
+        `;
+
+        /* Services Guidance */
+    } else if (buttonClicked === 'how to use services page') {
+
+        webGuidanceDiv.classList.add('web_guidance_div');
+
+        webGuidanceText = `
+            <a>1- اختار نوع الخدمة المناسبة.</a>
+            <a>2- قم بتأكيد الطلب عن طريق ارسال الطلب عبر الواتساب.</a>
+        `;
+
+        /* Villa Booking Page Guidance */
+    } else if (buttonClicked === 'how to use villa booking page') {
+
+        webGuidanceDiv.classList.add('web_guidance_div');
+
+        webGuidanceText = `
+            <a>1- اختار الفيلا المناسبة.</a>
+            <a>2- اضغط على احجز الآن وادخل تاريخ حجز الفيلا.</a>
+            <a>3- قم بتأكيد الطلب عن طريق ارسال الطلب عبر الواتساب.</a>
         `;
 
         /* Filter Restaurant Type */
@@ -695,7 +727,7 @@ if (document.getElementById("koktelindo_restaurant_order_details_body_id")) {
             <div id="koktelindo_order_check_out_div" style="display: none;"></div>
 
 
-            <a href="توصيل-مطاعم.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم المطاعم</a>
+            <a href="https://bandar-zuhair.github.io/test/مطاعم-اندونيسيا.html"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم المطاعم</a>
         </div>`;
 
     /* Set The Inner HTML Code of The 'all_order_page_content' Inside The 'koktelindo_restaurant_order_details_body_id' Element */
@@ -1566,7 +1598,7 @@ if (document.getElementById("koktelindo_supermarket_order_details_body_id")) {
 
             <div id="koktelindo_order_check_out_div" style="display: none;"></div>
 
-            <a href="سوبرماركت.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
+            <a href="https://bandar-zuhair.github.io/test/سوبرماركت-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
         </div>`;
 
 
@@ -2557,6 +2589,9 @@ if (document.getElementById("koktelindo_choose_villa_area_section")) {
         let bigImgTitle = document.createElement('a');
         bigImgTitle.textContent = 'صور الفيلا';
         bigImgTitle.classList.add('koktelindo_section_intro_bigger_text');
+        bigImgTitle.style.backgroundColor = 'black';
+        bigImgTitle.style.color = 'rgb(0, 255, 0)';
+        bigImgTitle.classList.add('koktelindo_section_intro_bigger_text');
         bigImgTitle.id = 'koktelindo_big_img_title';
         bigImgTitle.style.marginBottom = '10px';
         bigImgTitle.style.color = 'rgb(0, 255, 0)';
@@ -2631,12 +2666,6 @@ if (document.getElementById("koktelindo_choose_villa_area_section")) {
         // Disable scrolling
         document.documentElement.style.overflow = 'hidden';
 
-        if (document.documentElement.style.overflow === 'hidden') {
-            console.log('Yesssss')
-        } else {
-            console.log('Noooooo')
-        }
-
         let bookingDateDivContainerOverlay = document.createElement("div");
         bookingDateDivContainerOverlay.id = 'koktelindo_booking_date_div_container_overlay';
 
@@ -2697,7 +2726,7 @@ if (document.getElementById("koktelindo_choose_villa_area_section")) {
 
                 // Check if both textareas have text
                 if (noteText1 === '' || noteText2 === '') {
-                    alert('يرجى ملء جميع الحقول المطلوبة.');
+                    alert('يرجى ملئ جميع الحقول المطلوبة.');
                     return; // Stop further processing
                 }
 
@@ -3183,7 +3212,7 @@ if (document.getElementById("koktelindo_pharmacy_section")) {
                     // Create Button To Show Orders Page
                     let koktelindo_mealOrderIconDiv = document.createElement('div');
                     koktelindo_mealOrderIconDiv.id = 'koktelindo_order_page_icon_div';
-                    let koktelindo_mealOrderIcon = `<a href='https://bandar-zuhair.github.io/test/طلباتك-من-السوبرماركت.html' id="koktelindo_order_page_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
+                    let koktelindo_mealOrderIcon = `<a href='https://bandar-zuhair.github.io/test/طلباتك-من-الصيدلية.html' id="koktelindo_order_page_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
                     koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
                     koktelindo_mealOrderIconDiv.style.opacity = '0';
                     document.body.appendChild(koktelindo_mealOrderIconDiv);
@@ -3311,7 +3340,7 @@ if (document.getElementById("koktelindo_pharmacy_order_details_body_id")) {
 
             <div id="koktelindo_order_check_out_div" style="display: none;"></div>
 
-            <a href="الصيدلية.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
+            <a href="https://bandar-zuhair.github.io/test/صيدلية-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
         </div>`;
 
 
@@ -3947,7 +3976,7 @@ if (document.getElementById("koktelindo_shisha_section")) {
                     // Create Button To Show Orders Page
                     let koktelindo_mealOrderIconDiv = document.createElement('div');
                     koktelindo_mealOrderIconDiv.id = 'koktelindo_order_page_icon_div';
-                    let koktelindo_mealOrderIcon = `<a href='https://bandar-zuhair.github.io/test/طلباتك-من-السوبرماركت.html' id="koktelindo_order_page_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
+                    let koktelindo_mealOrderIcon = `<a href='https://bandar-zuhair.github.io/test/طلباتك-من-المعسلات.html' id="koktelindo_order_page_icon"><ion-icon name="cart-outline"></ion-icon></a>`;
                     koktelindo_mealOrderIconDiv.innerHTML = koktelindo_mealOrderIcon;
                     koktelindo_mealOrderIconDiv.style.opacity = '0';
                     document.body.appendChild(koktelindo_mealOrderIconDiv);
@@ -4075,7 +4104,7 @@ if (document.getElementById("koktelindo_shisha_order_details_body_id")) {
 
             <div id="koktelindo_order_check_out_div" style="display: none;"></div>
 
-            <a href="الصيدلية.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
+            <a href="https://bandar-zuhair.github.io/test/معسلات-اندونيسيا.html" class="koktelindo_go_back_products_page_button"> <ion-icon name="arrow-forward-circle-outline"></ion-icon> .. قسم السوبرماركت</a>
         </div>`;
 
 
